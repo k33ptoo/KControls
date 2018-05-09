@@ -33,6 +33,15 @@ public class KGradientPanel extends JPanel {
     public boolean kTransparentControls = true;
     public int kGradientFocus = 500;
     public int kBorderRadius = 10;
+    public boolean kFillBackground = true;
+
+    public boolean iskFillBackground() {
+        return kFillBackground;
+    }
+
+    public void setkFillBackground(boolean kFillBackground) {
+        this.kFillBackground = kFillBackground;
+    }
 
     public int getkBorderRadius() {
         return kBorderRadius;
@@ -76,7 +85,7 @@ public class KGradientPanel extends JPanel {
 
     public KGradientPanel() {
 
-        this.setPreferredSize(new Dimension(300, 450));
+        this.setPreferredSize(new Dimension(380, 280));
 
         if (kTransparentControls) {
             setBg(true);
@@ -106,7 +115,9 @@ public class KGradientPanel extends JPanel {
 
         // g2d.fillRect(0, 0, w, h);
         g2d.setPaint(gp);
-        g2d.fillRoundRect(0, 0, w - 1, h - 1, arcs.width, arcs.height);
+        if (kFillBackground == true) {
+            g2d.fillRoundRect(0, 0, w - 1, h - 1, arcs.width, arcs.height);
+        }
 
         g2d.drawRoundRect(0, 0, w - 1, h - 1, arcs.width, arcs.height);
 
