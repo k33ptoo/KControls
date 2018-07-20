@@ -5,7 +5,7 @@ These a bunch of components made for Java Swing to beautify user interfaces and 
 * KButton
 * KKGradientPanel
 * Drag Utility
-* 
+
 ![Example](https://github.com/k33ptoo/KControls/blob/master/images/demo.gif)
  
 How to install KControl(s)
@@ -53,8 +53,6 @@ Gets or sets the button’s indicator color.
  - **kIndicatorThickness(int)**
 Gets or sets the button’s indicator thickness.
 
-
- 
 
 ## States & Properties	
 (Properties to watch out for quicker UI designing)
