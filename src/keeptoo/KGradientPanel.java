@@ -34,6 +34,8 @@ public class KGradientPanel extends JPanel {
     public int kGradientFocus = 500;
     public int kBorderRadius = 10;
     public boolean kFillBackground = true;
+    
+    
 
     public boolean iskFillBackground() {
         return kFillBackground;
