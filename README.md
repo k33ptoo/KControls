@@ -1,5 +1,3 @@
-
-
 # KControls 
 These a bunch of components made for Java Swing to beautify user interfaces and give UI’s a modern look. They include :
 * KButton
@@ -9,9 +7,15 @@ These a bunch of components made for Java Swing to beautify user interfaces and 
 ![Example](https://github.com/k33ptoo/KControls/blob/master/images/demo.gif)
  
 How to install KControl(s)
-•	Open Netbeans Create your Swing application, head to Palette right click and select Palette Manager select Add from Jar and browse to the location of the downloaded jar file.
-•	Select and proceed, select KControls [KButton, KGradientPanel.. ] components proceed to select the category and hit Finish.
-•	Open your JFrame drag KGradientPanel/KButton to it and set the properties in the properties window.
+
+ - Open Netbeans Create your Swing application, head to Palette right
+   click and select Palette Manager select Add from Jar and browse to
+   the location of the downloaded jar file.
+ - Select and proceed, select KControls [KButton, KGradientPanel.. ]
+   components proceed to select the category and hit Finish.
+ - Open your JFrame drag KGradientPanel/KButton to it and set the
+   properties in the properties window.
+
 Note: Custom properties starts with K eg KStartColor
 
 
@@ -52,7 +56,6 @@ Gets or sets the button’s tab property by making kButtons have a tab–like fe
 Gets or sets the button’s indicator color.
  - **kIndicatorThickness(int)**
 Gets or sets the button’s indicator thickness.
-
 
 ## States & Properties	
 (Properties to watch out for quicker UI designing)
