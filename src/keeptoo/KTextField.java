@@ -8,24 +8,20 @@ package keeptoo;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
-import javax.swing.JDialog;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.border.MatteBorder;
 
 /**
  *
  * @author oXCToo
  */
-public class KTextField  extends JTextField{
-    
-    private KTextField()
-    {
+public class KTextField extends JTextField {
+
+    private KTextField() {
         setFont(new Font("Segoe UI", Font.PLAIN, 14));
         setBorder(new MatteBorder(new Insets(0, 0, 1, 0), Color.yellow));
         //setBackground(SwingUtilities.getRoot(KTextField.this).getBackground());
-        
+
     }
-    
-    
+
 }
