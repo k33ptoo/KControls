@@ -5,8 +5,6 @@
  */
 package keeptoo;
 
-import com.sun.glass.ui.Size;
-import com.sun.org.apache.regexp.internal.recompile;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -14,18 +12,14 @@ import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.border.Border;
 
 /**
  *
@@ -52,7 +46,7 @@ public class KButton extends JButton {
     public Color kPressedColor = Color.LIGHT_GRAY;
     public int kIndicatorThickness = 2;
     public Color kIndicatorColor = Color.white;
-    public boolean kAllowTab = true;
+    public boolean kAllowTab = false;
 
     public boolean iskAllowTab() {
         return kAllowTab;
@@ -200,7 +194,7 @@ public class KButton extends JButton {
 
             @Override
             public void mouseExited(MouseEvent me) {
-                mouseExited = false;
+                mouseExited = true;
                 mouseEntered = false;
                 repaint();
             }
@@ -223,6 +217,9 @@ public class KButton extends JButton {
 
     @Override
     protected void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+        super.setContentAreaFilled(false);
 
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
