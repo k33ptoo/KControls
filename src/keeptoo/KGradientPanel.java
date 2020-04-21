@@ -4,23 +4,10 @@
  * and open the template in the editor.
  */
 package keeptoo;
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.event.MouseMotionListener;
-import javax.swing.JCheckBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
+import javax.swing.*;
+import javax.swing.border.Border;
 
 /**
  *
@@ -34,6 +21,8 @@ public class KGradientPanel extends JPanel {
     public int kGradientFocus = 500;
     public int kBorderRadius = 10;
     public boolean kFillBackground = true;
+    public int pixels;
+
 
     public boolean iskFillBackground() {
         return kFillBackground;
@@ -83,10 +72,19 @@ public class KGradientPanel extends JPanel {
         this.kGradientFocus = kGradientFocus;
     }
 
-    public KGradientPanel() {
+    public KGradientPanel(int pix) {
 
         this.setPreferredSize(new Dimension(380, 280));
+        this.pixels = pix;
+        Border border = BorderFactory.createEmptyBorder(pixels, pixels, pixels, pixels);
+        this.setBorder(BorderFactory.createCompoundBorder(this.getBorder(), border));
+        this.setLayout(new BorderLayout());
+        
+        /**
+         * Above code is use to make drop shadow border
+         */
 
+        /////////////////////////////////////
         if (kTransparentControls) {
             setBg(true);
         } else {
@@ -122,6 +120,17 @@ public class KGradientPanel extends JPanel {
         g2d.drawRoundRect(0, 0, w - 1, h - 1, arcs.width, arcs.height);
 
         //g2d.dispose();
+
+
+        /**
+         * Following code is use to make drop shadow border
+         */
+        int shade = 0;
+        int topOpacity = 80;
+        for (int i = 0; i < pixels; i++) {
+            g.setColor(new Color(shade, shade, shade, ((topOpacity / pixels) * i)));
+            g.drawRect(i, i, this.getWidth() - ((i * 2) + 1), this.getHeight() - ((i * 2) + 1));
+        }
     }
 
     private void setBg(boolean isOpaque) {
