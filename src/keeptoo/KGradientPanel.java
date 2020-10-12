@@ -72,6 +72,13 @@ public class KGradientPanel extends JPanel {
         this.kGradientFocus = kGradientFocus;
     }
 
+    public KGradientPanel() {
+        if (kTransparentControls) {
+            setBg(true);
+        } else {
+            setBg(false);
+        }
+    }
     public KGradientPanel(int pix) {
 
         this.setPreferredSize(new Dimension(380, 280));
