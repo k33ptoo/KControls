@@ -2,12 +2,12 @@
 These a bunch of components made for Java Swing to beautify user interfaces and give UI’s a modern look. They include :
 * KButton
 * KKGradientPanel
-* Drag Utility
+* Frame Resize and Move Utility
 
 ![Example](https://github.com/k33ptoo/KControls/blob/master/images/demo.gif)
  
 How to install KControl(s)
-
+ - Download jar [file](https://github.com/k33ptoo/KControls/blob/master/dist/KControls-2.0.jar)
  - Open Netbeans Create your Swing application, head to Palette right
    click and select Palette Manager select Add from Jar and browse to
    the location of the downloaded jar file.
@@ -15,6 +15,17 @@ How to install KControl(s)
    components proceed to select the category and hit Finish.
  - Open your JFrame drag KGradientPanel/KButton to it and set the
    properties in the properties window.
+
+Using Maven
+``` xml
+<dependency>
+  <groupId>com.k33ptoo</groupId>
+  <artifactId>KControls</artifactId>
+  <version>2.0</version>
+</dependency>
+```
+
+Add your components to your code as described here
 
 Note: Custom properties starts with K eg KStartColor
 
@@ -91,39 +102,32 @@ Gets or sets the button’s gradient end color to the left.
  - **kBorderRadius(int)**
 Gets or sets the radius of a KGradientPanel(recommended 0 to 30).
 
-## Drag Utility
+## Frame Resize and Move Utility
 
-What drag utility does is, it allows you to drag around your undecorated JFrame. So how to use it.
+What resize and move utility does is, it allows you to drag or resize your undecorated JFrame. So here is how to use it.
 
- - Select the component you want to drag.
- - Go to properties window
- - Select Events Tab
- - Identify mousePressed event and click to auto-generate your event
-   after that insert the following code
-    ```new Drag(yourComponent).onPress(evt);```
+   ```` java
+    private static void resizeMoveFrame(JFrame frame) {
+        //Resize and move
+        SwingUtilities.invokeLater(() -> {
 
- - Next identify mouseDragged event and click to auto-generate your
-   event after that insert the following code
-   ```new Drag(yourComponent).moveWindow(evt);```
+            //Drag around your frame using below
 
- Complete code will be as follows
+            ComponentMoverUtil.moveFrame(frame, false, frame.getComponents());
 
-    private void yourComponentMouseDragged(java.awt.event.MouseEvent evt) {
-    
-    //drags the component
-    
-    new Drag(yourComponent).moveWindow(evt);
-    
-    }
-    
-    private void yourComponentMousePressed(java.awt.event.MouseEvent evt) {
-    
-    //grabs the component
-    
-    new Drag(yourComponent).onPress(evt);
-    
-    }
+           // Use below if you want to resize your frame
+            ComponentResizerUtil cr = new ComponentResizerUtil();
+            frame.getRootPane().setBorder(new LineBorder(Color.gray));
+            cr.setSnapSize(new Dimension(5, 5));
+            cr.setDragInsets(new Insets(5, 5, 5, 5));
+          
+            //always register frame to resize
+            cr.registerComponent(frame); 
 
+        });
+    } 
 
-Download Jar [Here](https://github.com/k33ptoo/KControls/blob/master/dist/KControls.jar)
+  ````
+
+Download Jar [Here](https://github.com/k33ptoo/KControls/blob/master/dist/KControls-2.0.jar)
 Thank you.
