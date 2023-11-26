@@ -27,6 +27,25 @@ Using Maven
 
 Add your components to your code as described here
 
+Using Eclipse IDE:
+- Downoad jar [file](https://github.com/k33ptoo/KControls/blob/master/dist/KControls-2.0.jar)
+- Open Eclipse and create your Swing Application.
+- Right click on the folder name and select Build Path.
+- In Module Path, click on Add External Jars, and give the path to the downloaded Jar File.
+- Click Apply and Close.
+- Open the design view of your application. (Alternatively, you can do Window -> Show View -> Other -> Window Builder -> Palette )
+- In the palette, right click on System and select Import Jar.
+- Browse to the location of the downloaded Jar File. Select and proceed, select KControls [KButton, KGradientPanel.. ]
+   components proceed to select the category and click OK.
+- In your module-info.java file, write `requires KControls`.
+- In your source code write this:
+  ```
+  import com.k33ptoo.components.*;
+  ```
+-  Open your JFrame drag KGradientPanel/KButton to it and set the
+   properties in the properties window.
+
+
 Note: Custom properties starts with K eg KStartColor
 
 
